@@ -93,14 +93,14 @@ public class Player : MonoBehaviour
 			{
 				Shoot();
 			}
-#elif UNITY_IOS
+		#elif UNITY_IOS
 
 			if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) && isPlayerOne == true))
 			{
 				Shoot();
 			}
 
-#else
+		#else
 
 		  if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0) && isPlayerOne == true))
 			{
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
 	private void Movements()
 	{
 		float horizontalInput = CrossPlatformInputManager.GetAxis("Horizontal");    //Input.GetAxis("Horizontal");
-		float VerticalInput = CrossPlatformInputManager.GetAxis("Verticle");  //Input.GetAxis ("Vertical");
+		float VerticalInput = CrossPlatformInputManager.GetAxis("Vertical");  //Input.GetAxis ("Vertical");
 
 		//if speed boost enable
 		//move 1.5x normal speed
@@ -169,12 +169,62 @@ public class Player : MonoBehaviour
 			transform.Translate(Vector3.right * _speed * 2.0f * horizontalInput * Time.deltaTime);
 			transform.Translate(Vector3.up * _Acceleration * 2.0f * VerticalInput * Time.deltaTime);
 
+
+		/*	//if hit w, move up
+			if (Input.GetKey(KeyCode.W))
+			{
+				transform.Translate(Vector3.up * _speed * 1.5f * Time.deltaTime);
+			}
+			//if hit d key, move right
+			if (Input.GetKey(KeyCode.D))
+			{
+				transform.Translate(Vector3.right * _speed * 1.5f * Time.deltaTime);
+			}
+			//if hit s, move down
+			if (Input.GetKey(KeyCode.S))
+			{
+				transform.Translate(Vector3.down * _speed * 1.5f * Time.deltaTime);
+			}
+			//if hit a key, move left
+			if (Input.GetKey(KeyCode.A))
+			{
+				transform.Translate(Vector3.left * _speed * 1.5f * Time.deltaTime);
+			}
+
+
+		*/
 		}
 		else if(canSpeedBoost == false)
 		{
 			transform.Translate(Vector3.right * _speed * horizontalInput * Time.deltaTime);
 			transform.Translate(Vector3.up * _Acceleration * VerticalInput * Time.deltaTime);
 
+		/*
+
+			//if hit w, move up
+			if (Input.GetKey(KeyCode.W))
+			{
+				transform.Translate(Vector3.up * _speed * Time.deltaTime);
+			}
+			//if hit d key, move right
+			if (Input.GetKey(KeyCode.D))
+			{
+				transform.Translate(Vector3.right * _speed * Time.deltaTime);
+			}
+			//if hit s, move down
+			if (Input.GetKey(KeyCode.S))
+			{
+				transform.Translate(Vector3.down * _speed * Time.deltaTime);
+			}
+			//if hit a key, move left
+			if (Input.GetKey(KeyCode.A))
+			{
+				transform.Translate(Vector3.left * _speed * Time.deltaTime);
+			}
+
+		
+		*/
+		
 		}
 
 
@@ -217,7 +267,7 @@ public class Player : MonoBehaviour
 			{
 				transform.Translate(Vector3.right * _speed * 1.5f * Time.deltaTime);
 			}
-			//if hit 2, move up
+			//if hit 2, move down
 			if (Input.GetKey(KeyCode.Keypad2))
 			{
 				transform.Translate(Vector3.down * _speed * 1.5f * Time.deltaTime);
@@ -242,7 +292,7 @@ public class Player : MonoBehaviour
 			{
 				transform.Translate(Vector3.right * _speed * Time.deltaTime);
 			}
-			//if hit 2, move up
+			//if hit 2, move down
 			if (Input.GetKey(KeyCode.Keypad2))
 			{
 				transform.Translate(Vector3.down * _speed * Time.deltaTime);
